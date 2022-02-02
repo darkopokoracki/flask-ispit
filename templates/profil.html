@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil</title>
+    <style>
+        header {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        span {
+            color: red;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Profil: {{ biciklista.get_id() }}</h1>
+        <hr>
+        <header>
+            <h2>ID: {{ biciklista.get_id() }}</h2>
+            <h1>Broj prijave: {{ biciklista.get_broj_prijave() }}</h1>
+        </header>
+
+        <section>
+            <p>Pol: {{ biciklista.get_pol() }}</p>
+            <p>Sifra: {{ biciklista.get_sifra() }}</p>
+            <p>Prva etapa: {{ biciklista.get_prva_etapa() }}</p>
+            <p>Druga etapa: {{ biciklista.get_druga_etapa() }}</p>
+        </section>
+    </div>
+</body>
+</html>

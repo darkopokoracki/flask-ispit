@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        span {
+            color: red;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Biciklisti</h1>
+        {% if 'prijava' in session %}
+            <a href="/logout">Logout</a>
+        {% else %}
+            <a href="/register">Register</a>
+            <a href="/login">Login</a>
+        {% endif %}
+        <hr>
+        <table border="1" style="border-collapse: collapse;">
+            <tr>
+                <th>Id</th>
+                <th>Broj prijave</th>
+                <th>Pol</th>
+                <th>Sifra</th>
+                <th>Prva etapa</th>
+                <th>Druga etapa</th>
+                <th>Ukupno vreme</th>
+            </tr>
+            {% for biciklista in biciklisti %}
+            <tr>
+                <td>{{ biciklista.get_id() }}</td>
+                <td>
+                    <a href="/profil/{{ biciklista.get_broj_prijave() }}">{{ biciklista.get_broj_prijave() }}</a>
+                </td>
+                <td>{{ biciklista.get_pol() }}</td>
+                <td>{{ biciklista.get_sifra() }}</td>
+                <td>{{ biciklista.get_prva_etapa() }}</td>
+                <td>{{ biciklista.get_druga_etapa() }}</td>
+                <td>{{ biciklista.izracunaj_ukupno_vreme() }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

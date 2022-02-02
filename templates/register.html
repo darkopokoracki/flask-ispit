@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        span {
+            color: red;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Register</h1>
+        <hr>
+        <form action="/register" method="POST">
+            <p>
+                <label for="prijava">Broj prijave</label>
+                <input type="text" name="prijava">
+                <span>{{ broj_prijave_error }}</span>
+            </p>
+
+            <p>
+                <label for="pol">Pol</label>
+                <input type="radio" name="pol" value="M"> M
+                <input type="radio" name="pol" value="Z"> Z
+            </p>
+
+            <p>
+                <label for="sifra">Sifra</label>
+                <input type="password" name="sifra">
+            </p>
+
+            <p>
+                <label for="potvrda">Potvrda Sifre</label>
+                <input type="password" name="potvrda">
+                <span>{{ potvrda_error }}</span>
+            </p>
+
+            <p>
+                <label for="vreme_prva_etapa">Vreme - prva etapa</label>
+                <input type="number" name="vreme_prva_etapa">
+                <span>{{ prva_etapa_error }}</span>
+            </p>
+
+            <p>
+                <label for="vreme_druga_etapa">Vreme - druga etapa</label>
+                <input type="number" name="vreme_druga_etapa">
+                <span>{{ druga_etapa_error }}</span>
+            </p>
+
+            <p>
+                <input type="submit" value="Register">
+            </p>
+        </form>
+    </div>
+</body>
+</html>
